@@ -1,6 +1,6 @@
 import Pet from "./Pet";
 
-const Results ({ pers }) => {
+const Results = ({ pets }) => {
     return (
         <div className='search'>
             {!pets.length ? (
@@ -8,7 +8,11 @@ const Results ({ pers }) => {
             ) : (
                 pets.map(pet => (
                     <Pet 
-                        {...pet}
+                        animal={pet.animal}
+                        name={pet.name}
+                        breed={pet.breed}
+                        images={pet.images}
+                        location={`${pet.city}, ${pet.state}`}
                         key={pet.id}
                     />
                 ))
@@ -16,3 +20,5 @@ const Results ({ pers }) => {
         </div>
     )
 }
+
+export default Results;
